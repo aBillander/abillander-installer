@@ -1,0 +1,38 @@
+{
+    "name": "abillander/abillander-installer",
+    "description": "aBillander Web Installer Package",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Christian Fernández Cores",
+            "email": "christian@cores.tech"
+        }
+    ],
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "require": {
+        "php": ">=7.0",
+        "laravel/framework": "~5.5.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~6.0",
+        "orchestra/testbench": "~3.5.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "aBillander\\Installer\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "aBillander\\Installer\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "aBillander\\Installer\\InstallerServiceProvider"
+            ]
+        }
+    }
+}

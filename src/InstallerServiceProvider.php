@@ -41,6 +41,10 @@ class InstallerServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__.'/../resources/views' => public_path('vendor/abillander/installer'),
         ], 'public');
+
+        // Middleware
+        $router->aliasMiddleware('caninstall', CanInstall::class);
+        $router->aliasMiddleware('redirectifneedsinstallation', RedirectIfNeedsInstallation::class);
     }
 
     /**
@@ -48,6 +52,11 @@ class InstallerServiceProvider extends ServiceProvider
      */
     public function register()
     {
+        // Config
         $this->mergeConfigFrom(__DIR__.'/../config/installer.php', 'installer');
+
+        // Middleware
+        $kernel = $this->app->make('Illuminate\Contracts\Http\Kernel');
+        $kernel->prependMiddleware('\aBillander\Installer\Middleware\RedirectIfNeedsInstallation::class');
     }
 }

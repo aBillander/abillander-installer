@@ -7,6 +7,7 @@ return [
     'overview' => [
         'welcome' => 'Elige tu idioma',
         'license' => 'Acuerdo de licencia',
+        'requirements' => 'Compatibilidad del sistema',
         'config' => 'Configuración',
         'install' => 'Instalación',
         'company' => 'Información de la empresa',

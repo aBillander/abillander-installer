@@ -7,6 +7,7 @@ return [
     'overview' => [
         'welcome' => 'Choose your language',
         'license' => 'License Agreements',
+        'requirements' => 'System compatibility',
         'config' => 'Configuration',
         'install' => 'Installation',
         'company' => 'Company',

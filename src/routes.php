@@ -16,7 +16,6 @@ Route::group($installerGroup, function () {
     Route::get('/license', 'LicenseController@show')->name('license');
     Route::post('/license', 'LicenseController@accept');
 
-    Route::get('/configuration', 'ConfigurationController@show')->name('config');
-    Route::post('/configuration', 'ConfigurationController@config');
+    Route::get('/requirements', 'RequirementsController@check')->name('requirements');
 
 });

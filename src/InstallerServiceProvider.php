@@ -6,6 +6,7 @@ use Illuminate\Routing\Router;
 use Illuminate\Support\ServiceProvider;
 
 use aBillander\Installer\Middleware\CanInstall;
+use aBillander\Installer\Middleware\NegotiateLanguage;
 use aBillander\Installer\Middleware\RedirectIfNeedsInstallation;
 
 class InstallerServiceProvider extends ServiceProvider
@@ -43,7 +44,7 @@ class InstallerServiceProvider extends ServiceProvider
         ], 'public');
 
         // Middleware
-        $router->aliasMiddleware('caninstall', CanInstall::class);
+        $router->middlewareGroup('installer',[CanInstall::class, NegotiateLanguage::class]);
         $router->aliasMiddleware('redirectifneedsinstallation', RedirectIfNeedsInstallation::class);
     }
 

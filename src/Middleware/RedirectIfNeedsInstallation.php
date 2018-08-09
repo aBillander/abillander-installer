@@ -27,7 +27,7 @@ class RedirectIfNeedsInstallation
     public function handle($request, Closure $next)
     {
         if (!$request->is($this->except) && !Installer::alreadyInstalled()) {
-            return redirect()->route('install.index');
+            return redirect()->route('installer::welcome');
         }
         return $next($request);
     }

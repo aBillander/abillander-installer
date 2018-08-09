@@ -48,4 +48,24 @@ return [
         'bootstrap/cache/'       => '775'
     ],
 
+    /*
+    |--------------------------------------------------------------------------
+    | Supported Locales
+    |--------------------------------------------------------------------------
+    |
+    | These are the languages supported by the installer.
+    | This configuration only affects this package.
+    |
+    */
+    'supportedLocales' => [
+        'en' => ['name' => 'English',    'native' => 'English'],
+        'es' => ['name' => 'Spanish',    'native' => 'Español'],
+        'ca' => ['name' => 'Catalan',    'native' => 'Català'],
+        'fr' => ['name' => 'French',     'native' => 'Français'],
+        'de' => ['name' => 'German',     'native' => 'Deutsch'],
+        'it' => ['name' => 'Italian',    'native' => 'Italiano'],
+        'pt' => ['name' => 'Portuguese', 'native' => 'Português'],
+    ],
+
+
 ];

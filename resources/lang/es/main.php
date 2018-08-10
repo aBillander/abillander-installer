@@ -24,4 +24,9 @@ return [
         'accept' => 'I agree to the above terms and conditions.',
     ],
 
+    'config' => [
+        'title' => 'Configuración',
+        'database' => 'Configure your database by filling out the following fields',
+    ],
+
 ];

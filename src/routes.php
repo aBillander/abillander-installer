@@ -18,4 +18,7 @@ Route::group($installerGroup, function () {
 
     Route::get('/requirements', 'RequirementsController@check')->name('requirements');
 
+    Route::get('/configuration', 'ConfigurationController@show')->name('configuration');
+    Route::post('/configuration', 'ConfigurationController@save');
+
 });

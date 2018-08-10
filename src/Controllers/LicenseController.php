@@ -20,6 +20,7 @@ class LicenseController extends Controller
     /**
      * Accept the license.
      *
+     * @param  Request  $request
      * @return \Illuminate\Http\Response
      */
     public function accept(Request $request)

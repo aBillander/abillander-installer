@@ -12,9 +12,9 @@ class RequirementsController extends Controller
     /**
      * Display the requirements page.
      *
-     * @param RequirementsChecker $requirementsChecker
-     * @param PermissionsChecker $permissionsChecker
-     * @return \Illuminate\View\View
+     * @param  RequirementsChecker  $requirementsChecker
+     * @param  PermissionsChecker  $permissionsChecker
+     * @return \Illuminate\Http\Response
      */
     public function check(RequirementsChecker $requirementsChecker, PermissionsChecker $permissionsChecker)
     {

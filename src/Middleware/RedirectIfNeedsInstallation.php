@@ -12,7 +12,7 @@ class RedirectIfNeedsInstallation
      *
      * @var array
      */
-    public $except = [
+    protected $except = [
         'install',
         'install/*',
     ];

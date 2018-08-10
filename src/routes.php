@@ -21,4 +21,7 @@ Route::group($installerGroup, function () {
     Route::get('/configuration', 'ConfigurationController@show')->name('configuration');
     Route::post('/configuration', 'ConfigurationController@save');
 
+    Route::get('/run', 'RunInstallController@show')->name('install');
+    Route::post('/run', 'RunInstallController@run');
+
 });

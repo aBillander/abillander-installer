@@ -16,9 +16,14 @@ class CanInstall
      */
     public function handle($request, Closure $next)
     {
-        if(Installer::alreadyInstalled()) {
+        if (Installer::alreadyInstalled()) {
             abort(404);
         }
+
+        if (Session::exists('install-finished')) {
+            Installer::registerInstallation();
+        }
+
         return $next($request);
     }
 

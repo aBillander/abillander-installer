@@ -24,4 +24,10 @@ Route::group($installerGroup, function () {
     Route::get('/run', 'RunInstallController@show')->name('install');
     Route::post('/run', 'RunInstallController@run');
 
+    Route::get('/company', 'CompanyController@show')->name('company');
+    Route::post('/company', 'CompanyController@store');
+
+    // Routes of the main app that must be accessible during install without auth
+    Route::get('/countries/{countryId}/getstates', '\App\Http\Controllers\CountriesController@getStates');
+
 });

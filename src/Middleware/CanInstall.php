@@ -3,6 +3,7 @@
 namespace aBillander\Installer\Middleware;
 
 use Closure;
+use Illuminate\Support\Facades\Session;
 use aBillander\Installer\Helpers\Installer;
 
 class CanInstall

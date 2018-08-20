@@ -5,20 +5,24 @@ namespace aBillander\Installer\Controllers;
 use Illuminate\Routing\Controller;
 use Illuminate\Http\Request;
 
+use App;
 use App\Http\Requests;
 use App\Company;
 use App\Address;
+use App\User;
 use App\Configuration;
 
 class CompanyController extends Controller
 {
     protected $company;
     protected $address;
+    protected $user;
 
-    public function __construct(Company $company, Address $address)
+    public function __construct(Company $company, Address $address, User $user)
     {
         $this->company = $company;
         $this->address = $address;
+        $this->user = $user;
     }
 
     /**
@@ -41,6 +45,10 @@ class CompanyController extends Controller
     {
         $request->validate($this->company::$rules);
         $request->validate($this->address::related_rules());
+        $request->validate([
+            'user.email' => 'required|email',
+            'user.password' => 'required|min:2|max:32|confirmed',
+        ]);
 
         $request->merge(['notes' => $request->input('address.notes'), 'name_commercial' => $request->input('address.name_commercial')]);
 
@@ -50,6 +58,21 @@ class CompanyController extends Controller
 
         $address = $this->address->create($data);
         $company->addresses()->save($address);
+
+        // Create admin
+        $userData = $request->input('user');
+
+        $language = \App\Language::where('iso_code', App::getLocale())->first();
+        if (!$language) {
+            $language = \App\Language::first();
+        }
+
+        $userData['language_id'] = $language->id;
+        $userData['password'] = \Hash::make($request->input('user.password'));
+        $userData['is_admin'] = 1;
+        $userData['active'] = 1;
+
+        $user = $this->user->create($userData);
 
         return redirect()->route('installer::done')->with('install-finished');
     }

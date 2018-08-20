@@ -12,53 +12,23 @@
                 <h3 class="panel-title">{{ l('Main Data') }}</h3>
             </div>
 
-            @include('companies._form')
+            <div class="panel-body">
 
+                @include('installer::partials.company.form')
+
+                @include('installer::partials.company.user')
+
+            </div>
+
+            <div class="panel-footer text-right">
+                <button class="btn btn-primary" type="submit" onclick="this.disabled=true;this.form.submit();">
+                    <i class="fa fa-floppy-o"></i>
+                    &nbsp; {{ l('Save', [], 'layouts') }}
+                </button>
+            </div>
         </div>
     {{ Form::close() }}
 
     @include('installer::partials.errors')
 
 @endsection
-
-@push('scripts')
-    <script type="text/javascript">
-
-        $('select[name="state_selector"]').change(function () {
-
-            $('#state_id').val( $('select[name="state_selector"]').val() );
-
-        });
-
-        $('select[name="address[country_id]"]').change(function () {
-            var new_countryID = $(this).val();
-
-            populateStatesByCountryID( new_countryID );
-        });
-
-        function populateStatesByCountryID( countryID, stateID = 0 )
-        {
-            $.get('{{ url('/') }}/install/countries/' + countryID + '/getstates', function (states) {
-
-                $('select[name="state_selector"]').empty();
-                $('select[name="state_selector"]').append('<option value=0>{{ l('-- Please, select --', [], 'layouts') }}</option>');
-                $.each(states, function (key, value) {
-                    $('select[name="state_selector"]').append('<option value=' + value.id + '>' + value.name + '</option>');
-                });
-
-            }).done( function() {
-
-                $('select[name="state_selector').val(stateID);
-
-                $('#state_id').val(stateID);
-
-            });
-        }
-
-        var countryID = $('select[name="address[country_id]"]').val();
-        var stateID   = $('#state_id').val();
-
-        populateStatesByCountryID( countryID, stateID );
-
-    </script>
-@endpush

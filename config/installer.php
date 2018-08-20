@@ -15,10 +15,6 @@ return [
     'core' => [
         'minPhpVersion' => '7.0.0'
     ],
-    'final' => [
-        'key' => true,
-        'publish' => false
-    ],
     'requirements' => [
         'php' => [
             'openssl',
@@ -42,7 +38,7 @@ return [
     'permissions' => [
         'storage/framework/'     => '775',
         'storage/logs/'          => '775',
-        'bootstrap/cache/'       => '775'
+        'bootstrap/cache/'       => '775',
     ],
 
     /*
@@ -57,11 +53,6 @@ return [
     'supportedLocales' => [
         'en' => ['name' => 'English',    'native' => 'English'],
         'es' => ['name' => 'Spanish',    'native' => 'Español'],
-        'ca' => ['name' => 'Catalan',    'native' => 'Català'],
-        'fr' => ['name' => 'French',     'native' => 'Français'],
-        'de' => ['name' => 'German',     'native' => 'Deutsch'],
-        'it' => ['name' => 'Italian',    'native' => 'Italiano'],
-        'pt' => ['name' => 'Portuguese', 'native' => 'Português'],
     ],
 
 

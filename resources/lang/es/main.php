@@ -24,9 +24,21 @@ return [
         'accept' => 'I agree to the above terms and conditions.',
     ],
 
+    'requirements' => [
+        'title' => 'Compatibilidad del sistema',
+    ],
+
+    'install' => [
+        'title' => 'Instalación de la Base de Datos',
+    ],
+
     'config' => [
         'title' => 'Configuración',
         'database' => 'Configure your database by filling out the following fields',
+    ],
+
+    'done' => [
+        'title' => 'Instalación terminada',
     ],
 
 ];

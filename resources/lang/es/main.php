@@ -32,6 +32,7 @@ return [
         'server' => 'Requerimientos del servidor',
         'min_version' => '(version :version required)',
         'permissions' => 'Permisos de las carpetas',
+        'unsupported' => 'El Instalador no puede continuar. Solucione los problemas de compatibilidad e inténtelo de nuevo.',
     ],
 
     'config' => [
@@ -52,6 +53,7 @@ return [
         'title' => 'Instalación de la Base de Datos',
         'text' => null,
         'action' => 'Instalar',
+        'loading' => 'La instalación puede llevar unos segundos. Por favor, espere.',
     ],
 
     'company' => [

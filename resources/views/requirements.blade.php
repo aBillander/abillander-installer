@@ -40,7 +40,7 @@
 
             @if( !$phpSupportInfo['supported'] || isset($requirements['errors']) || isset($permissions['errors']) )
                 <div class="alert alert-danger" style="margin-bottom: 20px;">
-                    <p>El Instalador no puede continuar. Solucione los problemas de compatibilidad e inténtelo de nuevo.</p>
+                    <p>{{ __('installer::main.requirements.unsupported') }}</p>
                 </div>
             @endif
 

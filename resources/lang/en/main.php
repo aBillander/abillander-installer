@@ -32,6 +32,7 @@ return [
         'server' => 'Server requirements',
         'min_version' => '(version :version required)',
         'permissions' => 'Folder permissions',
+        'unsupported' => null,
     ],
 
     'config' => [
@@ -52,6 +53,7 @@ return [
         'title' => 'Database installation',
         'text' => null,
         'action' => 'Install',
+        'loading' => null,
     ],
 
     'company' => [

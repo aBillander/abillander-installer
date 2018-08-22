@@ -25,8 +25,8 @@
 
             <div class="panel-body" id="busy-body" style="display:none">
                 <div class="alert alert-warning">
-                    <i class="fa fa-refresh fa-spin" style="font-size:24px;margin-right:12px;"></i> 
-                    {{ 'La configuración de la base de datos puede llevar un tiempo. Por favor, espere.' }}
+                    <i class="fa fa-refresh fa-spin" style="font-size:24px;margin-right:12px;"></i>
+                    {{ __('installer::main.install.loading') }}
                 </div>
                 <hr>
 
@@ -54,10 +54,10 @@
 function toggle_to_processing()
 {
 
-    // 
+    //
     $('#regular-body').hide('slow');
 
-    // 
+    //
     $('#busy-body').show('slow');
 
 }

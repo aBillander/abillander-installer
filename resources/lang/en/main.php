@@ -16,29 +16,62 @@ return [
 
     'welcome' => [
         'title' => 'Welcome to the aBillander Installer',
+        'text' => null,
         'select_lang' => 'Continue the installation in:',
     ],
 
     'license' => [
         'title' => 'License Agreements',
+        'text' => null,
         'accept' => 'I agree to the above terms and conditions.',
     ],
 
     'requirements' => [
         'title' => 'System compatibility',
-    ],
-
-    'install' => [
-        'title' => 'Database installation',
+        'text' => null,
+        'server' => 'Server requirements',
+        'min_version' => '(version :version required)',
+        'permissions' => 'Folder permissions',
     ],
 
     'config' => [
         'title' => 'Configuration',
-        'database' => 'Configure your database by filling out the following fields',
+        'text' => null,
+        'database' => [
+            'title' => 'Configure your database by filling out the following fields',
+            'host' => 'Database host',
+            'port' => 'Database port',
+            'name' => 'Database name',
+            'login' => 'Database login',
+            'password' => 'Database password',
+        ],
+        'success' => null,
+    ],
+
+    'install' => [
+        'title' => 'Database installation',
+        'text' => null,
+        'action' => 'Install',
+    ],
+
+    'company' => [
+        'title' => null,
+        'user' => [
+            'title' => null,
+            'firstname' => null,
+            'lastname' => null,
+            'email' => null,
+            'password' => null,
+            'repeat_password' => null,
+        ],
+        'action' => null,
+        'success' => null,
     ],
 
     'done' => [
         'title' => 'Installation completed',
+        'text' => null,
+        'action' => null,
     ],
 
 

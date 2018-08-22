@@ -38,11 +38,10 @@
             <p>{{ __('installer::main.requirements.text') }}</p>
             <hr>
 
-            {{-- Un if mejorable --}}
-            @if( !( $phpSupportInfo['supported'] && !isset($requirements['errors']) && !isset($permissions['errors']) ) )
-            <div class="alert alert-danger" style="margin-bottom: 20px;">
-                <p>El Instalador no puede continuar. Solucione los problemas de compatibilidad e inténtelo de nuevo.</p>
-            </div>
+            @if( !$phpSupportInfo['supported'] || isset($requirements['errors']) || isset($permissions['errors']) )
+                <div class="alert alert-danger" style="margin-bottom: 20px;">
+                    <p>El Instalador no puede continuar. Solucione los problemas de compatibilidad e inténtelo de nuevo.</p>
+                </div>
             @endif
 
             <div class="col-md-6">

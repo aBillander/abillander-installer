@@ -37,6 +37,14 @@
         <div class="panel-body">
             <p>A continuación se muestran los requerimientos de instalación de la aplicación. Si existiera alguna incompatibilidad consulte con su proveedor de hosting o administrador.</p>
             <hr>
+
+            {{-- Un if mejorable --}}
+            @if( !( $phpSupportInfo['supported'] && !isset($requirements['errors']) && !isset($permissions['errors']) ) )
+            <div class="alert alert-danger" style="margin-bottom: 20px;">
+                <p>El Instalador no puede continuar. Solucione los problemas de compatibilidad e inténtelo de nuevo.</p>
+            </div>
+            @endif
+
             <div class="col-md-6">
                 <div class="list-group">
                     <div class="list-group-item item-header">

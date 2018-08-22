@@ -2,7 +2,7 @@
 
 return [
 
-    'title' => 'Asistente de instalación :: aBillander',
+    'title' => 'aB://ander :: Asistente de Instalación',
 
     'overview' => [
         'welcome' => 'Elige tu idioma',
@@ -39,6 +39,14 @@ return [
 
     'done' => [
         'title' => 'Instalación terminada',
+    ],
+
+
+    'initial_data' => [
+        'measure_unit' => [
+            'name' => 'Unidad(es)',
+            'sign' => 'ud.',
+        ],
     ],
 
 ];

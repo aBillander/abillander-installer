@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App;
 use App\Http\Requests;
 use App\Company;
+use App\Warehouse;
 use App\Address;
 use App\User;
 use App\Configuration;
@@ -15,12 +16,14 @@ use App\Configuration;
 class CompanyController extends Controller
 {
     protected $company;
+    protected $warehouse;
     protected $address;
     protected $user;
 
-    public function __construct(Company $company, Address $address, User $user)
+    public function __construct(Company $company, Warehouse $warehouse, Address $address, User $user)
     {
         $this->company = $company;
+        $this->warehouse = $warehouse;
         $this->address = $address;
         $this->user = $user;
     }
@@ -43,6 +46,7 @@ class CompanyController extends Controller
      */
     public function store(Request $request)
     {
+        // Create Company
         $request->validate($this->company::$rules);
         $request->validate($this->address::related_rules());
         $request->validate([
@@ -59,6 +63,12 @@ class CompanyController extends Controller
         $address = $this->address->create($data);
         $company->addresses()->save($address);
 
+        // Create Warehouse (guess it is the same address...)
+        $warehouse = $this->warehouse->create( $request->all() );
+
+        $address = $this->address->create($data);
+        $warehouse->addresses()->save($address);
+
         // Create admin
         $userData = $request->input('user');
 
@@ -73,6 +83,10 @@ class CompanyController extends Controller
         $userData['active'] = 1;
 
         $user = $this->user->create($userData);
+
+        // Gorrino update; Needs future refactoring
+        $company->language_id = $user->language_id;
+        $company->save();
 
         return redirect()->route('installer::done')->with('install-finished');
     }
